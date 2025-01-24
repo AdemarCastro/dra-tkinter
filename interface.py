@@ -39,7 +39,11 @@ def home():
     label_resultado.pack(pady=10)
 
     # Insira aqui o rótulo e lista para exibir o histórico de conversões realizadas
-    
+    label_historico = tk.Label(frame_central, text="Histórico de Conversões:", font=("Arial", 12, "bold"))
+    label_historico.pack(pady=5)
+
+    listbox_historico = tk.Listbox(frame_central, height=5, width=50, font=("Arial", 10), selectmode="single")
+    listbox_historico.pack(pady=5)
 
     def acao_converter():
         valor_digitado = entrada_valor.get()
@@ -55,7 +59,9 @@ def home():
             label_resultado["text"] = resultado
 
             # Insira aqui o código para adicionar a conversão realizada no histórico
-            
+            listbox_historico.delete(0, tk.END)
+            for item in get_historico():
+                listbox_historico.insert(0, item)
 
         except ValueError:
             label_resultado["text"] = "Erro: Insira um número válido."
