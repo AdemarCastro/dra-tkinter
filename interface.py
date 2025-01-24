@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from conversao import converter, get_historico
+from conversao import converter
 from taxas import TAXAS_CONVERSAO
 
 def home():
